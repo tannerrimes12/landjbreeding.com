@@ -4,6 +4,20 @@ from wagtail.core.blocks import (
     CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock,
 )
 
+class HorseList(StructBlock):
+
+    type = ChoiceBlock(choices=[
+        ('stallion', 'Stallion'),
+        ('mare', 'Mares'),
+        ('forsale', 'For Sale'),
+        ('sold', 'Sold')
+    ], blank=True, required=False)
+
+    class Meta:
+        icon = "title"
+        template = "blocks/horse_list.html"
+
+
 
 class ImageBlock(StructBlock):
     """

@@ -1,0 +1,18 @@
+{% comment %}
+    Content is coming from the StandardBlock StreamField
+    class within `blocks.py`
+{% endcomment %}
+
+{% if self.size == 'stallion' %}
+        <h2>{{ self.heading_text }}</h2>
+
+    {% elif self.size == 'mare' %}
+        <h3>{{ self.heading_text }}</h3>
+
+    {% elif self.size == 'forsale' %}
+        <h4>{{ self.heading_text }}</h4>
+
+    {% elif self.size == 'sold' %}
+        <h4>{{ self.heading_text }}</h4>
+
+{% endif %}
