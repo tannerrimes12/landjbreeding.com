@@ -8,6 +8,7 @@ class HorseList(StructBlock):
 
     type = ChoiceBlock(choices=[
         ('stallion', 'Stallion'),
+        ('gelding', 'Gelding'),
         ('mare', 'Mares'),
         ('forsale', 'For Sale'),
         ('sold', 'Sold')

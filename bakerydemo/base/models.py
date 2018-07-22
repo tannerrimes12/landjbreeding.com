@@ -35,6 +35,7 @@ class Horse(models.Model):
     sex = models.CharField(max_length = 1, choices = (
         ('M', 'Male'),
         ('F', 'Female'),
+        ('G', 'Gelding'),
     ), default = 'M')
     breed = models.ForeignKey('Breed', models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
     # breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
