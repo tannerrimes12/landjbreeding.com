@@ -37,9 +37,9 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # AWS creds may be used for S3 and/or Elasticsearch
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', '')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-AWS_REGION = os.getenv('AWS_REGION', '')
+AWS_ACCESS_KEY_ID = os.getenv('BUCKETEER_AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.getenv('BUCKETEER_AWS_SECRET_ACCESS_KEY', '')
+AWS_REGION = os.getenv('BUCKETEER_AWS_REGION', '')
 
 # configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
 CACHES = {'default': django_cache_url.config()}
@@ -91,8 +91,8 @@ if ELASTICSEARCH_ENDPOINT:
 MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+if 'BUCKETEER_BUCKET_NAME' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = os.getenv('BUCKETEER_BUCKET_NAME')
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_AUTO_CREATE_BUCKET = True
 
