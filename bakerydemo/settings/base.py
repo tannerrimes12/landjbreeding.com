@@ -32,10 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bakerydemo.base',
-    'bakerydemo.blog',
-    'bakerydemo.breads',
-    'bakerydemo.locations',
-    'bakerydemo.search',
+    #'bakerydemo.blog',
+    #'bakerydemo.breads',
+    #'bakerydemo.locations',
+     #bakerydemo.search',
 
     'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',
