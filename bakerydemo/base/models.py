@@ -36,8 +36,7 @@ class Horse(models.Model):
         ('M', 'Male'),
         ('F', 'Female'),
     ), default = 'M')
-    # breed = models.ForeignKey('Breed', models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
-    breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
+    breed = models.ForeignKey('Breed', models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
 
     panels = [
         FieldPanel('name'),
