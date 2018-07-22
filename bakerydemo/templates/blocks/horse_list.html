@@ -1,18 +1,13 @@
-{% comment %}
-    Content is coming from the StandardBlock StreamField
-    class within `blocks.py`
-{% endcomment %}
+{% load custom_tags %}
 
-{% if self.size == 'stallion' %}
-        <h2>{{ self.heading_text }}</h2>
+{% get_horses self.type as horse_list %}
 
-    {% elif self.size == 'mare' %}
-        <h3>{{ self.heading_text }}</h3>
-
-    {% elif self.size == 'forsale' %}
-        <h4>{{ self.heading_text }}</h4>
-
-    {% elif self.size == 'sold' %}
-        <h4>{{ self.heading_text }}</h4>
-
-{% endif %}
+<ul>
+{% for horse in horse_list %}
+  <li>
+    <h2>{{horse.name}}</h2>
+    <p><strong>Sex: </strong>{{horse.sex}}</p>
+    <p><strong>Breed: </strong>{{horse.breed}}</p>
+  </li>
+{% endfor %}
+</ul>
