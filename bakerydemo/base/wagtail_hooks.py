@@ -2,7 +2,7 @@ from wagtail.contrib.modeladmin.options import (
     ModelAdmin, ModelAdminGroup, modeladmin_register)
 
 from bakerydemo.breads.models import Country, BreadIngredient, BreadType
-from bakerydemo.base.models import People, FooterText
+from bakerydemo.base.models import People, FooterText, Horse, Breed
 
 '''
 N.B. To see what icons are available for use in Wagtail menus and StreamField block types,
@@ -19,6 +19,27 @@ or see http://kave.github.io/general/2015/12/06/wagtail-streamfield-icons.html
 This demo project includes the full font-awesome set via CDN in base.html, so the entire
 font-awesome icon set is available to you. Options are at http://fontawesome.io/icons/.
 '''
+
+
+
+class BreedsModelAdmin(ModelAdmin):
+    model = Breed
+    menu_label = 'Breeds'  # ditch this to use verbose_name_plural from model
+    menu_icon = 'fa-book'  # change as required
+    list_display = ('name',)
+
+
+class HorsesModelAdmin(ModelAdmin):
+    model = Horse
+    menu_label = 'Horses'  # ditch this to use verbose_name_plural from model
+    menu_icon = 'fa-home'  # change as required
+    list_display = ('name', 'sex', 'breed')
+
+
+
+
+
+
 
 
 class BreadIngredientAdmin(ModelAdmin):
@@ -64,3 +85,5 @@ class BakeryModelAdminGroup(ModelAdminGroup):
 # you only need to register the ModelAdminGroup class with Wagtail:
 modeladmin_register(BreadModelAdminGroup)
 modeladmin_register(BakeryModelAdminGroup)
+modeladmin_register(HorsesModelAdmin)
+modeladmin_register(BreedsModelAdmin)

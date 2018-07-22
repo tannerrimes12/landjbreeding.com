@@ -23,6 +23,34 @@ from wagtail.snippets.models import register_snippet
 from .blocks import BaseStreamBlock
 
 
+class Breed(models.Model):
+    name = models.CharField(max_length = 255)
+    def __str__(self):
+        return self.name
+
+
+class Horse(models.Model):
+    name = models.CharField(max_length = 255)
+    description = models.TextField()
+    sex = models.CharField(max_length = 1, choices = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+    ), default = 'M')
+    #breed = models.ForeignKey('Breed', models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
+    breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('description'),
+        FieldPanel('breed'),
+        FieldPanel('sex'),
+
+    ]
+
+
+
+
+
 @register_snippet
 class People(index.Indexed, ClusterableModel):
     """
