@@ -75,6 +75,7 @@ class BaseStreamBlock(StreamBlock):
     )
     image_block = ImageBlock()
     block_quote = BlockQuote()
+    horse_list = HorseList()
     embed_block = EmbedBlock(
         help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
         icon="fa-s15",
