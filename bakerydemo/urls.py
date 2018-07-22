@@ -34,7 +34,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += [
         url(
-            r'^favicon\.ico$', RedirectView.as_view(
+            r'^favicon\.png$', RedirectView.as_view(
                 url=settings.STATIC_URL + 'img/horse-head.png'
                 )
             )
