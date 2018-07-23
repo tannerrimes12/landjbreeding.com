@@ -1063,9 +1063,9 @@ span.outline {
   font-weight: 300;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .horse-list-item {
-    width: 900px;
+    width: 47%;
   }
 }
 
