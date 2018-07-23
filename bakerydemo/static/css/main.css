@@ -321,7 +321,7 @@ nav {
 .nav-pills>li, .nav-pills>li, .nav>li>a, .nav>li>a {
   border-top: 1px solid transparent;
 }
-/* The following is to stop a pixel shift on hover */ 
+/* The following is to stop a pixel shift on hover */
 .nav-pills>li.breads {
   width: 90px;
 }
@@ -733,7 +733,7 @@ span.outline {
   margin-right: 10px;
 }
 
-.form-page .fieldWrapper ul, 
+.form-page .fieldWrapper ul,
 .form-page .fieldWrapper li {
   list-style: none;
   padding: 0;
@@ -1044,4 +1044,61 @@ span.outline {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+
+
+
+
+/* Bread styles */
+/* Bread listview */
+.horse-list-item {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 3px;
+  margin: 12px;
+  overflow: hidden;
+}
+
+.horse-list-item h2 {
+  font-weight: 300;
+}
+
+@media (min-width: 1200px) {
+  .horse-list-item {
+    width: 900px;
+  }
+}
+
+.horse-list-item .image {
+  background-color: #eb7400;
+  margin: 0;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 180px;
+  min-height: 180px;
+  padding: 0;
+}
+
+/* .horse-list-item .image:hover img {
+  opacity: 0.3;
+} */
+
+.horse-list-item img {
+  margin: 0;
+  width: auto;
+}
+
+.horse-list-item ul {
+  padding-left: 2px;
+}
+
+.horse-list-item li {
+  list-style: none;
+}
+
+.horse-list-item li span {
+  color: #777;
+  display: inline-block;
+  font-weight: 600;
+  width: 70px;
 }

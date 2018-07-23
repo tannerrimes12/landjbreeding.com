@@ -2,18 +2,29 @@
 {% load wagtailimages_tags %}
 {% get_horses self.type as horse_list %}
 
+
+
+
 <div class="container">
-    <div class="row bread-list">
+    <div class="row horse-list">
     {% for horse in horse_list %}
-        <div class="col-xs-12 col-md-6 bread-list-item">
+        <div class="col-xs-12 col-md-6 col-lg-3 horse-list-item">
             <div class="row">
-                <div class="col-xs-4 col-sm-4 image">
+                <div class="col-xs-4 col-sm-4 col-md-4 image">
                         {% image horse.image fill-180x180-c100 as image %}
                         <img src="{{ image.url }}" width="{{ image.width }}"
                             height="{{ image.height }}" alt="{{ image.alt }}" class="" />
                 </div>
-                <div class="col-xs-6 col-sm-7">
-                    <h2>{{ horse.name }}</h2>
+                <div class="col-xs-6 col-sm-7 col-md-8">
+                        <h2>{{ horse.name }}</h2>
+                    <ul class="horse-meta">
+                    {% if horse.legal_name %}
+                        <li><span>Legal Name: </span> {{ horse.legal_name }}</li>
+                    {% endif %}
+                    {% if horse.breed %}
+                        <li><span>Breed: </span> {{ horse.breed }}</li>
+                    {% endif %}
+                    </ul>
                 </div>
             </div>
         </div>
