@@ -46,10 +46,20 @@ class Horse(models.Model):
         ('NFS', 'Not For Sale'),
     ), default = 'NFS')
 
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
+    )
+
 
     panels = [
         FieldPanel('name'),
         FieldPanel('legal_name'),
+        ImageChooserPanel('image'),
         FieldPanel('description'),
         FieldPanel('breed'),
         FieldPanel('sex'),
