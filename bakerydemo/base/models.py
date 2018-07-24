@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django import forms
 
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
@@ -19,6 +20,8 @@ from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
+from wagtail.documents.models import Document
+from wagtail.images.models import Image
 
 from .blocks import BaseStreamBlock
 
@@ -38,7 +41,7 @@ class Horse(models.Model):
         ('F', 'Female'),
         ('G', 'Gelding'),
     ), default = 'M')
-    breed = models.ForeignKey('Breed', models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
+    breed = models.ForeignKey(Breed, models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
     # breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
     status = models.CharField(max_length = 3, choices = (
         ('FS', 'For Sale'),
@@ -46,8 +49,10 @@ class Horse(models.Model):
         ('NFS', 'Not For Sale'),
     ), default = 'NFS')
 
+    documents = models.ManyToManyField(Document, null=True, blank=True)
+
     image = models.ForeignKey(
-        'wagtailimages.Image',
+        Image,
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
@@ -64,6 +69,7 @@ class Horse(models.Model):
         FieldPanel('breed'),
         FieldPanel('sex'),
         FieldPanel('status'),
+        FieldPanel('documents', widget=forms.SelectMultiple),
 
     ]
 
