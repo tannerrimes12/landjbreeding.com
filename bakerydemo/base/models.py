@@ -50,6 +50,7 @@ class Horse(models.Model):
     ), default = 'NFS')
 
     documents = models.ManyToManyField(Document, null=True, blank=True)
+    images = models.ManyToManyField(Image, null=True, blank=True)
 
     image = models.ForeignKey(
         Image,
@@ -70,6 +71,7 @@ class Horse(models.Model):
         FieldPanel('sex'),
         FieldPanel('status'),
         FieldPanel('documents', widget=forms.SelectMultiple),
+        FieldPanel('images', widget=forms.SelectMultiple),
 
     ]
 

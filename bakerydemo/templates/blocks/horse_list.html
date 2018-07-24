@@ -23,10 +23,10 @@
                     {% endif %}
                     </ul>
                     <ul>
-                        {% for doc in horse.documents.all %}
+                        {% for img in horse.images.all %}
                           <li>
-                            <a href="{{doc.file.url}}">
-                                {{doc.title}}
+                            <a href="{{img.file.url}}">
+                                {{img.title}}
                             </a>
                           </li>
                         {% endfor %}
