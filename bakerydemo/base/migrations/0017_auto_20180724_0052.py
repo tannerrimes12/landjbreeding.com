@@ -17,9 +17,4 @@ class Migration(migrations.Migration):
             name='documents',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='wagtailcore.Collection'),
         ),
-        migrations.AlterField(
-            model_name='horse',
-            name='breed',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.SET_DEFAULT, to='base.Breed'),
-        ),
     ]
