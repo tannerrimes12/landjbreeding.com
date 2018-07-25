@@ -160,6 +160,7 @@ figcaption {
 img {
   display: block;
   width: 100%;
+  pointer-events: none;
 }
 
 /* Generic detail page styles */
@@ -1120,9 +1121,10 @@ span.outline {
 .gallery-image {
   /* This is the place to style the container of the thumbnails*/
   display: inline-block;
-}
+ }
 
 .gallery-image a {
   /* This is the place to style each thumbnail */
   padding: 10px;
+
 }
