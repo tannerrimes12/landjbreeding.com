@@ -1116,3 +1116,13 @@ span.outline {
   font-weight: 600;
   width: 70px;
 }
+
+.gallery-image {
+  /* This is the place to style the container of the thumbnails*/
+  display: inline-block;
+}
+
+.gallery-image a {
+  /* This is the place to style each thumbnail */
+  padding: 10px;
+}

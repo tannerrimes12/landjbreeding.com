@@ -22,15 +22,12 @@
                         <li><span>Breed: </span> {{ horse.breed }}</li>
                     {% endif %}
                     </ul>
-                    <ul>
+                    <div class="thumbnail-list">
                         {% for img in horse.images.all %}
-                          <li>
-                            <a href="{{img.file.url}}">
-                                {{img.title}}
-                            </a>
-                          </li>
+                          {% image img fill-40x40-c100 as thumb %}
+                          <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
