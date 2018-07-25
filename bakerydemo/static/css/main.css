@@ -71,7 +71,7 @@ a, a:focus, a:visited {
 
 a:hover {
   color: #eb7400;
-  text-decoration: none;
+  text-decoration: none;form-page
 }
 
 a.btn {
@@ -724,7 +724,7 @@ span.outline {
 /* Form detail page */
 .form-page input, textarea, select {
   display: block;
-  min-width: 450px;
+  min-width: 350px;
   max-width: 450px;
 }
 

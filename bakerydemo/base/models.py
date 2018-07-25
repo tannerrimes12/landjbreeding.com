@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django import forms
+from django.forms import widgets
 
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
@@ -176,7 +177,7 @@ class HomePage(Page):
     # in different ways, and displayed in different areas of the page.
     # Each list their children items that we access via the children function
     # that we define on the individual Page models e.g. BlogIndexPage
-    # featured_section_1_title = models.CharField(
+    # featured_section_1_title = models.CharFiein the models.py of one of your apps, create a model that eld(
     #     null=True,
     #     blank=True,
     #     max_length=255,
@@ -344,3 +345,19 @@ class FormPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+        # form = super(AbstractEmailForm, self).get_form(*args, **kwargs)  # use this syntax for Python 2.x
+        # iterate through the fields in the generated form
+        for name, field in form.fields.items():
+            # here we want to adjust the widgets on each field
+            # if the field is a TextArea - adjust the rows
+            if isinstance(field.widget, widgets.Textarea):
+                field.widget.attrs.update({'cols': '5'})
+            # for all fields, get any existing CSS classes and add 'form-control'
+            # ensure the 'class' attribute is a string of classes with spaces
+            css_classes = field.widget.attrs.get('class', '').split()
+            css_classes.append('form-control')
+            field.widget.attrs.update({'class': ' '.join(css_classes)})
+        return form
