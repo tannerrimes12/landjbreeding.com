@@ -151,83 +151,6 @@ class HomePage(Page):
         BaseStreamBlock(), verbose_name="Home content block", blank=True
     )
 
-    # Promo section of the HomePage
-    # promo_image = models.ForeignKey(
-    #     'wagtailimages.Image',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     help_text='Promo image'
-    # )
-    # promo_title = models.CharField(
-    #     null=True,
-    #     blank=True,
-    #     max_length=255,
-    #     help_text='Title to display above the promo copy'
-    # )
-    # promo_text = RichTextField(
-    #     null=True,
-    #     blank=True,
-    #     help_text='Write some promotional copy'
-    # )
-
-    # Featured sections on the HomePage
-    # You will see on templates/base/home_page.html that these are treated
-    # in different ways, and displayed in different areas of the page.
-    # Each list their children items that we access via the children function
-    # that we define on the individual Page models e.g. BlogIndexPage
-    # featured_section_1_title = models.CharFiein the models.py of one of your apps, create a model that eld(
-    #     null=True,
-    #     blank=True,
-    #     max_length=255,
-    #     help_text='Title to display above the promo copy'
-    # )
-    # featured_section_1 = models.ForeignKey(
-    #     'wagtailcore.Page',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     help_text='First featured section for the homepage. Will display up to '
-    #     'three child items.',
-    #     verbose_name='Featured section 1'
-    # )
-    #
-    # featured_section_2_title = models.CharField(
-    #     null=True,
-    #     blank=True,
-    #     max_length=255,
-    #     help_text='Title to display above the promo copy'
-    # )
-    # featured_section_2 = models.ForeignKey(
-    #     'wagtailcore.Page',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     help_text='Second featured section for the homepage. Will display up to '
-    #     'three child items.',
-    #     verbose_name='Featured section 2'
-    # )
-    #
-    # featured_section_3_title = models.CharField(
-    #     null=True,
-    #     blank=True,
-    #     max_length=255,
-    #     help_text='Title to display above the promo copy'
-    # )
-    # featured_section_3 = models.ForeignKey(
-    #     'wagtailcore.Page',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     help_text='Third featured section for the homepage. Will display up to '
-    #     'six child items.',
-    #     verbose_name='Featured section 3'
-    # )
-
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             ImageChooserPanel('image'),
@@ -237,26 +160,7 @@ class HomePage(Page):
                 PageChooserPanel('hero_cta_link'),
                 ])
             ], heading="Hero section"),
-        # MultiFieldPanel([
-        #     ImageChooserPanel('promo_image'),
-        #     FieldPanel('promo_title'),
-        #     FieldPanel('promo_text'),
-        # ], heading="Promo section"),
         StreamFieldPanel('body'),
-        # MultiFieldPanel([
-        #     MultiFieldPanel([
-        #         FieldPanel('featured_section_1_title'),
-        #         PageChooserPanel('featured_section_1'),
-        #         ]),
-        #     MultiFieldPanel([
-        #         FieldPanel('featured_section_2_title'),
-        #         PageChooserPanel('featured_section_2'),
-        #         ]),
-        #     MultiFieldPanel([
-        #         FieldPanel('featured_section_3_title'),
-        #         PageChooserPanel('featured_section_3'),
-        #         ])
-        # ], heading="Featured homepage sections", classname="collapsible")
     ]
 
     def __str__(self):
@@ -348,15 +252,9 @@ class FormPage(AbstractEmailForm):
 
     def get_form(self, *args, **kwargs):
         form = super().get_form(*args, **kwargs)
-        # form = super(AbstractEmailForm, self).get_form(*args, **kwargs)  # use this syntax for Python 2.x
-        # iterate through the fields in the generated form
         for name, field in form.fields.items():
-            # here we want to adjust the widgets on each field
-            # if the field is a TextArea - adjust the rows
             if isinstance(field.widget, widgets.Textarea):
                 field.widget.attrs.update({'cols': '5'})
-            # for all fields, get any existing CSS classes and add 'form-control'
-            # ensure the 'class' attribute is a string of classes with spaces
             css_classes = field.widget.attrs.get('class', '').split()
             css_classes.append('form-control')
             field.widget.attrs.update({'class': ' '.join(css_classes)})
