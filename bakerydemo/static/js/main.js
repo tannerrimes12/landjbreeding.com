@@ -7,13 +7,12 @@ $(function(){
       'thumbs',
       'close'
     ]
-  });
 
+  });
   $('.thumbnail-list').bind("contextmenu",function(e) {
     return false;
   });
 });
-
 // $(document).ready(function() {
 //   $('.thumbnail-list').bind("contextmenu",function(e) {
 //     return false;
