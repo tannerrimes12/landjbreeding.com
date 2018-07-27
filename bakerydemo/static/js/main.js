@@ -13,8 +13,3 @@ $(function(){
     return false;
   });
 });
-// $(document).ready(function() {
-//   $('.thumbnail-list').bind("contextmenu",function(e) {
-//     return false;
-//   });
-// });
