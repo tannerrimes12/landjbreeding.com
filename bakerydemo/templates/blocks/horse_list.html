@@ -8,11 +8,11 @@
         <div class="col-xs-12 col-md-6 horse-list-item">
             <div class="row">
                 <div class="col-xs-4 col-sm-4 image">
-                  {% image horse.image fill-180x180-c100 as image %}
-                  <a id="{{image.title}}" href="{{image.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{image.url}}" alt=""/></a>
-                        <!-- <img src="{{ image.url }}" width="{{ image.width }}"
-                            height="{{ image.height }}" alt="{{ image.alt }}" class="" /> -->
-
+                        {% image horse.image fill-180x180-c100 as image %}
+                        <a id="{{horse.image.title}}" href="{{horse.image.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}">
+                          <img src="{{ image.url }}" width="{{ image.width }}"
+                              height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+                        </a>
                 </div>
                 <div class="col-xs-6 col-sm-6">
                         <h2>{{ horse.name }}</h2>
