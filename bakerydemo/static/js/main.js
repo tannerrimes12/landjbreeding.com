@@ -9,7 +9,7 @@ $(function(){
     ]
 
   });
-  // $('.thumbnail-list').bind("contextmenu",function(e) {
+  $('.thumbnail-list').bind("contextmenu",function(e) {
     return false;
   });
 });
