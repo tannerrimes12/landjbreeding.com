@@ -50,8 +50,15 @@ class Horse(models.Model):
         ('NFS', 'Not For Sale'),
     ), default = 'NFS')
 
-    documents = models.ManyToManyField(Document, null=True, blank=True)
+    # documents = models.ManyToManyField(Document, null=True, blank=True)
     images = models.ManyToManyField(Image, null=True, blank=True)
+    collection = models.ForeignKey(
+        Collection,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='horse_images',
+        help_text='Select the collection for this horse.')
 
     image = models.ForeignKey(
         Image,
@@ -67,12 +74,13 @@ class Horse(models.Model):
         FieldPanel('name'),
         FieldPanel('legal_name'),
         ImageChooserPanel('image'),
-        FieldPanel('description'),
+        FieldPanel('collection'),
+        FieldPanel('description', widget=forms.Textarea),
         FieldPanel('breed'),
         FieldPanel('sex'),
         FieldPanel('status'),
-        FieldPanel('documents', widget=forms.SelectMultiple),
-        FieldPanel('images', widget=forms.SelectMultiple),
+        # FieldPanel('documents', widget=forms.SelectMultiple),
+        # FieldPanel('images', widget=forms.SelectMultiple),
 
     ]
 
