@@ -42,8 +42,8 @@ class Horse(models.Model):
         ('F', 'Female'),
         ('G', 'Gelding'),
     ), default = 'M')
-    breed = models.ForeignKey(Breed, models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
-    # breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
+    # breed = models.ForeignKey(Breed, models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
+    breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
     status = models.CharField(max_length = 3, choices = (
         ('FS', 'For Sale'),
         ('S', 'Sold'),
@@ -51,7 +51,7 @@ class Horse(models.Model):
     ), default = 'NFS')
 
     # documents = models.ManyToManyField(Document, null=True, blank=True)
-    images = models.ManyToManyField(Image, null=True, blank=True)
+    # images = models.ManyToManyField(Image, null=True, blank=True)
     collection = models.ForeignKey(
         Collection,
         null=True,
