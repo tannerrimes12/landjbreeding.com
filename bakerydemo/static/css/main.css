@@ -71,7 +71,7 @@ a, a:focus, a:visited {
 
 a:hover {
   color: #eb7400;
-  text-decoration: none;form-page
+  text-decoration: none;
 }
 
 a.btn {
@@ -1085,7 +1085,7 @@ span.outline {
 }
 
 .horse-list-item .image {
-  background-color: #d3d3d3;
+  background-color: #fff;
   margin: 0;
   max-width: 180px;
   min-width: 180px;
@@ -1100,6 +1100,7 @@ span.outline {
 .horse-list-item img {
   margin: 0;
   width: auto;
+  border: 1px solid #000;
 }
 
 .horse-list-item ul {

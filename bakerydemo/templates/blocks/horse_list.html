@@ -32,13 +32,19 @@
                     {% if horse.breed %}
                         <li><span>Breed: </span> {{ horse.breed }}</li>
                     {% endif %}
-                    {% if horse.description %}
-                        <li> {{ horse.description }}</li>
-                    {% endif %}
                     </ul>
 
                 </div>
             </div>
+            {% if horse.description %}
+            <div class="row">
+                <div class="col">
+                    <p>
+                    {{ horse.description }}
+                    </p>
+                </div>
+            </div>
+            {% endif %}
         </div>
     {% endfor %}
     </div>
