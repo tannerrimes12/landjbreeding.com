@@ -15,7 +15,8 @@
                         </a>
 
                         <div class="thumbnail-list">
-                            {% for img in horse.images.all %}
+                          {% get_horse_images horse.collection as image_list %}
+                            {% for img in image_list %}
                               {% image img fill-40x40-c100 as thumb %}
                               <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
                             {% endfor %}

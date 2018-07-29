@@ -10,7 +10,6 @@ register = template.Library()
 def get_horses(horse_type):
 
     horse_list = None
-
     if horse_type == 'stallion':
         horse_list = Horse.objects.filter(sex='M', status = 'NFS')
     elif horse_type == 'mare':
@@ -20,6 +19,9 @@ def get_horses(horse_type):
     elif horse_type == 'sale':
         horse_list = Horse.objects.filter(status='S')
 
-
-
     return horse_list
+
+@register.simple_tag()
+def get_horse_images(collection):
+    image_list = Image.objects.filter(collection=collection)
+    return image_list
