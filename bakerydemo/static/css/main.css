@@ -419,8 +419,9 @@ li.has-submenu a.allow-toggle {
 }
 .container {
   width: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 12px;
+  padding-right: 25px;
+  margin: 2px;
 }
 @media (min-width: 768px) {
   .container {
@@ -1074,16 +1075,15 @@ span.outline {
   margin: 12px;
   overflow: hidden;
 }
-
 .horse-list-item h2 {
   font-weight: 300;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 4000px) {
   .horse-list-item {
     width: 47%;
   }
-}
+} */
 
 .horse-list-item .image {
   background-color: #fff;
@@ -1116,7 +1116,7 @@ span.outline {
   color: #777;
   display: inline-block;
   font-weight: 600;
-  width: 70px;
+  width: auto;
 }
 
 .gallery-image {
@@ -1127,5 +1127,12 @@ span.outline {
 .gallery-image a {
   /* This is the place to style each thumbnail */
   padding: 10px;
-
 }
+
+
+/* .col-xs-6, .col-sm-6 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  padding-left: 15px;
+} */

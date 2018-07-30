@@ -13,19 +13,11 @@
                           <img src="{{ image.url }}" width="{{ image.width }}"
                               height="{{ image.height }}" alt="{{ image.alt }}" class="" />
                         </a>
-
-                        <div class="thumbnail-list">
-                          {% get_horse_images horse.collection as image_list %}
-                            {% for img in image_list %}
-                              {% image img fill-40x40-c100 as thumb %}
-                              <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
-                            {% endfor %}
-                        </div>
                 </div>
 
                 <div class="col-xs-6 col-sm-6">
                         <h2>{{ horse.name }}</h2>
-                    <ul class="horse-meta">
+                    <ul  class="horse-meta">
                     {% if horse.registered_name %}
                         <li><span>Registered Name: </span> {{ horse.registered_name }}</li>
                     {% endif %}
@@ -45,6 +37,14 @@
                 </div>
             </div>
             {% endif %}
+
+            <div class="thumbnail-list">
+              {% get_horse_images horse.collection as image_list %}
+                {% for img in image_list %}
+                  {% image img fill-40x40-c100 as thumb %}
+                  <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
+                {% endfor %}
+            </div>
         </div>
     {% endfor %}
     </div>
