@@ -49,6 +49,10 @@ class Horse(models.Model):
         ('S', 'Sold'),
         ('NFS', 'Not For Sale'),
     ), default = 'NFS')
+    stud_service = models.NullBooleanField(
+        null=True,
+        blank=True,
+        help_text='Check if horse is only for Stud Use')
 
     # documents = models.ManyToManyField(Document, null=True, blank=True)
     # images = models.ManyToManyField(Image, null=True, blank=True)
@@ -79,6 +83,7 @@ class Horse(models.Model):
         FieldPanel('breed'),
         FieldPanel('sex'),
         FieldPanel('status'),
+        FieldPanel('stud_service', widget=forms.CheckboxInput),
         # FieldPanel('documents', widget=forms.SelectMultiple),
         # FieldPanel('images', widget=forms.SelectMultiple),
 
