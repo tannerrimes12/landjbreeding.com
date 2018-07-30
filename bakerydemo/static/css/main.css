@@ -18,10 +18,11 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   font-size: 19px;
-  font-family: 'Alegreya', serif;
+  font-family: 'Playfair Display', serif;
   background: rgb(255,255,255);
   background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(233,228,221,1) 100%);
   min-height: 100vh;
+
 }
 
 @media (min-width: 768px) {

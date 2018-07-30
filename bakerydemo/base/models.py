@@ -35,7 +35,7 @@ class Breed(models.Model):
 
 class Horse(models.Model):
     name = models.CharField(max_length = 255)
-    legal_name = models.CharField(max_length = 255, default = ' ')
+    registered_name = models.CharField(max_length = 255, default = ' ')
     description = models.TextField(null = True, blank = True)
     sex = models.CharField(max_length = 1, choices = (
         ('M', 'Male'),
@@ -72,7 +72,7 @@ class Horse(models.Model):
 
     panels = [
         FieldPanel('name'),
-        FieldPanel('legal_name'),
+        FieldPanel('registered_name'),
         ImageChooserPanel('image'),
         FieldPanel('collection'),
         FieldPanel('description', widget=forms.Textarea),
