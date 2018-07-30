@@ -1106,10 +1106,13 @@ span.outline {
 
 .horse-list-item ul {
   padding-left: 2px;
+  padding-right: 0px;
+
 }
 
 .horse-list-item li {
   list-style: none;
+  max-width: 220px;
 }
 
 .horse-list-item li span {
@@ -1130,9 +1133,10 @@ span.outline {
 }
 
 
-/* .col-xs-6, .col-sm-6 {
+.col-xs-6, .col-sm-6 {
   position: relative;
   min-height: 1px;
+  max-width: none;
   padding-right: 0px;
   padding-left: 15px;
-} */
+}
