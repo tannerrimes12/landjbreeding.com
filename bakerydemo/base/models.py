@@ -36,12 +36,14 @@ class Breed(models.Model):
 class Horse(models.Model):
     name = models.CharField(max_length = 255)
     registered_name = models.CharField(max_length = 255, default = ' ')
-    description = models.TextField(null = True, blank = True)
+    description = models.TextField(null = True, blank = True, help_text = "Add in foal information")
     sex = models.CharField(max_length = 1, choices = (
         ('M', 'Male'),
         ('F', 'Female'),
         ('G', 'Gelding'),
     ), default = 'M')
+    stud_fee = models.TextField(blank = True, null = True)
+    price = models.TextField(blank = True, null = True)
     # breed = models.ForeignKey(Breed, models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
     breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
     status = models.CharField(max_length = 3, choices = (
@@ -53,6 +55,7 @@ class Horse(models.Model):
         null=True,
         blank=True,
         help_text='Check if horse is only for Stud Use')
+
 
     # documents = models.ManyToManyField(Document, null=True, blank=True)
     # images = models.ManyToManyField(Image, null=True, blank=True)
@@ -84,6 +87,9 @@ class Horse(models.Model):
         FieldPanel('sex'),
         FieldPanel('status'),
         FieldPanel('stud_service', widget=forms.CheckboxInput),
+        FieldPanel('stud_fee', widget=forms.NumberInput),
+        FieldPanel('price', widget=forms.NumberInput)
+
         # FieldPanel('documents', widget=forms.SelectMultiple),
         # FieldPanel('images', widget=forms.SelectMultiple),
 

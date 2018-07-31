@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row horse-list">
     {% for horse in horse_list %}
-        <div class="col-xs-12 col-md-6 horse-list-item">
+        <div class="col-xs-12 col-md-12 horse-list-item">
             <div class="row">
                 <div class="col-xs-4 col-sm-4 image">
                         {% image horse.image fill-180x180-c100 as image %}
@@ -30,6 +30,13 @@
                     </ul>
 
                 </div>
+                <div class="thumbnail-list col-xs-12">
+                  {% get_horse_images horse.collection as image_list %}
+                    {% for img in image_list %}
+                      {% image img fill-40x40-c100 as thumb %}
+                      <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
+                    {% endfor %}
+                </div>
             </div>
             {% if horse.description %}
             <div class="row">
@@ -41,13 +48,7 @@
             </div>
             {% endif %}
 
-            <div class="thumbnail-list">
-              {% get_horse_images horse.collection as image_list %}
-                {% for img in image_list %}
-                  {% image img fill-40x40-c100 as thumb %}
-                  <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
-                {% endfor %}
-            </div>
+
         </div>
     {% endfor %}
     </div>

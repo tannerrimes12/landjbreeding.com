@@ -1112,7 +1112,7 @@ span.outline {
 
 .horse-list-item li {
   list-style: none;
-  max-width: 220px;
+  max-width: auto;
 }
 
 .horse-list-item li span {
@@ -1136,7 +1136,7 @@ span.outline {
 .col-xs-6, .col-sm-6 {
   position: relative;
   min-height: 1px;
-  max-width: none;
+  min-width: 200px;
   padding-right: 0px;
   padding-left: 15px;
 }
