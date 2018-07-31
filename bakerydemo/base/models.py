@@ -42,8 +42,8 @@ class Horse(models.Model):
         ('F', 'Female'),
         ('G', 'Gelding'),
     ), default = 'M')
-    stud_fee = models.TextField(blank = True, null = True)
-    price = models.TextField(blank = True, null = True)
+    stud_fee = models.TextField(blank = True, null = True, help_text='Do not enter $ sign')
+    price = models.TextField(blank = True, null = True, help_text='Do not enter $ sign')
     # breed = models.ForeignKey(Breed, models.SET_DEFAULT, default = Breed.objects.get(name='Unknown').pk)
     breed = models.ForeignKey('Breed', models.SET_NULL, null = True, blank = True)
     status = models.CharField(max_length = 3, choices = (
@@ -87,8 +87,8 @@ class Horse(models.Model):
         FieldPanel('sex'),
         FieldPanel('status'),
         FieldPanel('stud_service', widget=forms.CheckboxInput),
-        FieldPanel('stud_fee', widget=forms.NumberInput),
-        FieldPanel('price', widget=forms.NumberInput)
+        FieldPanel('stud_fee'),
+        FieldPanel('price')
 
         # FieldPanel('documents', widget=forms.SelectMultiple),
         # FieldPanel('images', widget=forms.SelectMultiple),

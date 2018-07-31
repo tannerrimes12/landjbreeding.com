@@ -49,6 +49,22 @@
             {% endif %}
 
 
+            {% if horse.stud_fee %}
+            <div class="row">
+                <div class="col">
+                    <li><span>Stud Fee: </span>${{horse.stud_fee}}</li>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if horse.price %}
+            <div class="row">
+                <div class="col">
+                    <li><span>Price: </span> ${{horse.price}}</li>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
     {% endfor %}
     </div>
