@@ -18,7 +18,7 @@ $(function(){
       $(this).css('display','none');
     }
     if(index==3){
-      $(this).find('img').replaceWith('<div class="ellipsis-icon"><i class="fa fa-ellipsis-h"></i></div>');
+      $(this).children('img').replaceWith('<div class="ellipsis-icon"><i class="fa fa-ellipsis-h"></i></div>');
     }
   });
 });
