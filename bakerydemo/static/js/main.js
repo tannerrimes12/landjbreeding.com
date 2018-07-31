@@ -13,12 +13,14 @@ $(function(){
     return false;
   });
 
-  $('.thumbnail-list a').each(function(index){
-    if(index>3){
-      $(this).css('display','none');
-    }
-    if(index==3){
-      $(this).children('img').replaceWith('<div class="ellipsis-icon"><i class="fa fa-ellipsis-h"></i></div>');
-    }
+  $('.thumbnail-list').each(function(){
+    $(this).children('a').each(function(index){
+      if(index>3){
+        $(this).css('display','none');
+      }
+      if(index==3){
+        $(this).children('img').replaceWith('<div class="ellipsis-icon"><i class="fa fa-ellipsis-h"></i></div>');
+      }
+    });
   });
 });
