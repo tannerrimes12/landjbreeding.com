@@ -1088,9 +1088,9 @@ span.outline {
 .horse-list-item .image {
   background-color: #fff;
   margin: 0;
-  max-width: 180px;
-  min-width: 180px;
-  min-height: 180px;
+  max-width: 185px;
+  min-width: 185px;
+  min-height: 185px;
   padding: 0;
 }
 
@@ -1127,9 +1127,9 @@ span.outline {
   display: inline-block;
  }
 
-.gallery-image a {
+.gallery-image img {
   /* This is the place to style each thumbnail */
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 
@@ -1139,4 +1139,16 @@ span.outline {
   min-width: 200px;
   padding-right: 0px;
   padding-left: 15px;
+}
+
+.ellipsis-icon{
+  width: 42px;
+  height: 42px;
+  border: 1px solid #000;
+}
+.ellipsis-icon i{
+  font-size: 2.2em;
+  width: 100%;
+  text-align: center;
+  color: #999;
 }
