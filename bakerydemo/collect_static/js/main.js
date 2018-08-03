@@ -19,9 +19,8 @@ $(function(){
         $(this).css('display','none');
       }
       if(index==3){
-        $(this).children('img').attr('src', static_root +'img/elipses-icon.png');
+        $(this).children('img').replaceWith('<div class="ellipsis-icon"><i href="static/img/ellipsis.png"></i></div>');
       }
-
     });
   });
 });

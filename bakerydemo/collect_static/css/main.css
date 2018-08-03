@@ -18,10 +18,11 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   font-size: 19px;
-  font-family: 'Alegreya', serif;
+  font-family: 'Playfair Display', serif;
   background: rgb(255,255,255);
   background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(233,228,221,1) 100%);
   min-height: 100vh;
+
 }
 
 @media (min-width: 768px) {
@@ -160,6 +161,7 @@ figcaption {
 img {
   display: block;
   width: 100%;
+  pointer-events: none;
 }
 
 /* Generic detail page styles */
@@ -321,7 +323,7 @@ nav {
 .nav-pills>li, .nav-pills>li, .nav>li>a, .nav>li>a {
   border-top: 1px solid transparent;
 }
-/* The following is to stop a pixel shift on hover */ 
+/* The following is to stop a pixel shift on hover */
 .nav-pills>li.breads {
   width: 90px;
 }
@@ -385,6 +387,20 @@ li.has-submenu a.allow-toggle {
 .caret-custom:after {
     content: "▼"!important;
 }
+
+/* Mobile menu styling */
+@media (max-width: 768px) {
+  .nav-pills>li {
+    display: block;
+    float: none;
+    width: 100%!important;
+  }
+  .nav-pills> li > a {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 20px 0;
+  }
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
@@ -403,8 +419,9 @@ li.has-submenu a.allow-toggle {
 }
 .container {
   width: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 12px;
+  padding-right: 25px;
+  margin: 2px;
 }
 @media (min-width: 768px) {
   .container {
@@ -724,7 +741,7 @@ span.outline {
 /* Form detail page */
 .form-page input, textarea, select {
   display: block;
-  min-width: 450px;
+  min-width: 350px;
   max-width: 450px;
 }
 
@@ -733,7 +750,7 @@ span.outline {
   margin-right: 10px;
 }
 
-.form-page .fieldWrapper ul, 
+.form-page .fieldWrapper ul,
 .form-page .fieldWrapper li {
   list-style: none;
   padding: 0;
@@ -1044,4 +1061,94 @@ span.outline {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+
+
+
+
+/* Bread styles */
+/* Bread listview */
+.horse-list-item {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 3px;
+  margin: 12px;
+  overflow: hidden;
+}
+.horse-list-item h2 {
+  font-weight: 300;
+}
+
+/* @media (min-width: 4000px) {
+  .horse-list-item {
+    width: 47%;
+  }
+} */
+
+.horse-list-item .image {
+  background-color: #fff;
+  margin: 0;
+  max-width: 185px;
+  min-width: 185px;
+  min-height: 185px;
+  padding: 0;
+}
+
+/* .horse-list-item .image:hover img {
+  opacity: 0.3;
+} */
+
+.horse-list-item img {
+  margin: 0;
+  width: auto;
+  border: 1px solid #000;
+}
+
+.horse-list-item ul {
+  padding-left: 2px;
+  padding-right: 0px;
+
+}
+
+.horse-list-item li {
+  list-style: none;
+  max-width: auto;
+}
+
+.horse-list-item li span {
+  color: #777;
+  display: inline-block;
+  font-weight: 600;
+  width: auto;
+}
+
+.gallery-image {
+  /* This is the place to style the container of the thumbnails*/
+  display: inline-block;
+ }
+
+.gallery-image img {
+  /* This is the place to style each thumbnail */
+  /* padding: 10px; */
+}
+
+
+.col-xs-6, .col-sm-6 {
+  position: relative;
+  min-height: 1px;
+  min-width: 200px;
+  padding-right: 0px;
+  padding-left: 15px;
+}
+
+.ellipsis-icon{
+  width: 42px;
+  height: 42px;
+  border: 1px solid #000;
+}
+.ellipsis-icon i{
+  font-size: 2.2em;
+  width: 100%;
+  text-align: center;
+  color: #999;
 }
