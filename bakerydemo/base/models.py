@@ -23,8 +23,25 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail.documents.models import Document
 from wagtail.images.models import Image
+from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 from .blocks import BaseStreamBlock
+
+@register_setting
+class SocialMediaSettings(BaseSetting):
+    facebook = models.URLField(
+        help_text='Your Facebook page URL', blank = True)
+    instagram = models.URLField(
+        max_length=255, help_text='Your Instagram Page URL', blank = True)
+    twitter = models.URLField(
+        help_text='Your Twitter page URL', blank = True)
+    youtube = models.URLField(
+        help_text='Your YouTube channel or user account URL', blank = True)
+
+@register_setting
+class Footer(BaseSetting):
+    copyright = models.TextField(blank = True, null = True)
+
 
 
 class Breed(models.Model):

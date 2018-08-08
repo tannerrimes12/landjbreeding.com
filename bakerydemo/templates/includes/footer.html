@@ -1,34 +1,54 @@
-{% load navigation_tags static %}
+{% load navigation_tags static custom_tags %}
+{% social as sociallinks%}
 
 <div class="container" role="contentinfo">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <ul class="list-inline text-center">
+                {% if sociallinks.facebook %}
                 <li>
-                    <a href="https://github.com/wagtail/wagtail">
+                    <a href="{{ sociallinks.facebook }}" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
+                {% if sociallinks.twitter %}
                 <li>
-                    <a href="https://twitter.com/wagtailcms" target="_blank">
+                  <a href="{{sociallinks.twitter}}" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
+                {% if sociallinks.instagram %}
                 <li>
-                    <a href="https://wagtail.io/" target="_blank">
+                    <a href="{{sociallinks.instagram}}" target="_blank">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-link fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                 </li>
+                {% endif %}
+                {% if sociallinks.instagram %}
+                <li>
+                    <a href="{{sociallinks.youtube}}" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
             </ul>
+            <div class="copyright text-center text-muted" role="note">
+              {% copyright %}
+            </div>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@ from django import template
 
 from wagtail.images.models import Image
 
-from bakerydemo.base.models import Horse
+from bakerydemo.base.models import Horse, SocialMediaSettings, Footer
 
 register = template.Library()
 
@@ -25,3 +25,15 @@ def get_horses(horse_type):
 def get_horse_images(collection):
     image_list = Image.objects.filter(collection=collection)
     return image_list
+
+
+@register.simple_tag()
+def social():
+    data = SocialMediaSettings.objects.all().first()
+    return data
+
+@register.simple_tag()
+def copyright():
+    data = ""
+    data = Footer.objects.first().copyright
+    return data
