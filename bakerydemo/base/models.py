@@ -27,7 +27,7 @@ from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 from .blocks import BaseStreamBlock
 
-@register_setting
+@register_setting(icon = 'media')
 class SocialMediaSettings(BaseSetting):
     facebook = models.URLField(
         help_text='Your Facebook page URL', blank = True)
@@ -38,7 +38,7 @@ class SocialMediaSettings(BaseSetting):
     youtube = models.URLField(
         help_text='Your YouTube channel or user account URL', blank = True)
 
-@register_setting
+@register_setting(icon = 'download')
 class Footer(BaseSetting):
     copyright = models.TextField(blank = True, null = True)
 

@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     #'bakerydemo.locations',
      #bakerydemo.search',
 
-    'wagtail.contrib.search_promotions',
+    # 'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
+    # 'wagtail.contrib.redirects',
     'wagtail.contrib.settings',
+    # 'wagtail.contrib.styleguide',
     'wagtail.embeds',
-    'wagtail.sites',
+    # 'wagtail.sites',
     'wagtail.users',
     'wagtail.snippets',
     'wagtail.documents',
@@ -78,7 +79,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'wagtail.core.middleware.SiteMiddleware',
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    # 'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 
 ]
 
