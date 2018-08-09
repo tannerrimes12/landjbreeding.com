@@ -260,6 +260,13 @@ cite {
   margin: 0 0 0;
   font-family: 'Docktrin', serif;
 }
+@media(max-width: 768px) {
+  .logo{
+    font-size: 45px;
+  }
+
+}
+
 .logo:hover {
   color: #d4566b;
   text-decoration: none;
