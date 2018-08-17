@@ -99,13 +99,13 @@ class Horse(models.Model):
         FieldPanel('registered_name'),
         ImageChooserPanel('image'),
         FieldPanel('collection'),
-        FieldPanel('description', widget=forms.Textarea),
-        FieldPanel('breed'),
+        FieldPanel('description', widget=forms.Textarea(attrs={'placeholder': 'Add in Foal Information'})),
         FieldPanel('sex'),
+        FieldPanel('breed'),
         FieldPanel('status'),
         FieldPanel('stud_service', widget=forms.CheckboxInput),
-        FieldPanel('stud_fee'),
-        FieldPanel('price')
+        FieldPanel('stud_fee', widget=forms.TextInput(attrs={'placeholder': 'Do not add the $ sign'})),
+        FieldPanel('price', widget=forms.TextInput(attrs={'placeholder': 'Do not add the $ sign'}))
 
         # FieldPanel('documents', widget=forms.SelectMultiple),
         # FieldPanel('images', widget=forms.SelectMultiple),
