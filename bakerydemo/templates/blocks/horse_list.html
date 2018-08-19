@@ -4,68 +4,72 @@
 
 <div class="container">
     <div class="row horse-list">
-    {% for horse in horse_list %}
-        <div class="col-xs-12 col-md-12 horse-list-item">
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 image">
-                        {% image horse.image fill-185x185-c100 as image %}
-                        <a id="{{horse.image.title}}" href="{{horse.image.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}">
-                          <img src="{{ image.url }}" width="{{ image.width }}"
-                              height="{{ image.height }}" alt="{{ image.alt }}" class="" />
-                        </a>
-                        <div class="thumbnail-list">
-                          {% get_horse_images horse.collection as image_list %}
-                            {% for img in image_list %}
-                              {% image img fill-40x40-c100 as thumb %}
-                              <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
-                            {% endfor %}
-                        </div>
-                </div>
+	{% if horse_list %}
+	    {% for horse in horse_list %}
+	        <div class="col-xs-12 col-md-12 horse-list-item">
+	            <div class="row">
+	                <div class="col-xs-4 col-sm-4 image">
+	                        {% image horse.image fill-185x185-c100 as image %}
+	                        <a id="{{horse.image.title}}" href="{{horse.image.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}">
+	                          <img src="{{ image.url }}" width="{{ image.width }}"
+	                              height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+	                        </a>
+	                        <div class="thumbnail-list">
+	                          {% get_horse_images horse.collection as image_list %}
+	                            {% for img in image_list %}
+	                              {% image img fill-40x40-c100 as thumb %}
+	                              <a id="{{img.title}}" href="{{img.file.url}}" class="gallery-image" data-fancybox="{{horse.name}}"><img src="{{thumb.url}}" alt=""/></a>
+	                            {% endfor %}
+	                        </div>
+	                </div>
 
-                <div class="col-xs-6 col-sm-6">
-                        <h2>{{ horse.name }}</h2>
-                    <ul  class="horse-meta">
-                    {% if horse.registered_name %}
-                        <li><span>Registered Name: </span> {{ horse.registered_name }}</li>
-                    {% endif %}
-                    {% if horse.breed %}
-                        <li><span>Breed: </span> {{ horse.breed }}</li>
-                    {% endif %}
-                    {% if horse.stud_service %}
-                        <li><span>Stud Service Only: </span> Yes</li>
-                    {% endif %}
-                    </ul>
+	                <div class="col-xs-6 col-sm-6">
+	                        <h2>{{ horse.name }}</h2>
+	                    <ul  class="horse-meta">
+	                    {% if horse.registered_name %}
+	                        <li><span>Registered Name: </span> {{ horse.registered_name }}</li>
+	                    {% endif %}
+	                    {% if horse.breed %}
+	                        <li><span>Breed: </span> {{ horse.breed }}</li>
+	                    {% endif %}
+	                    {% if horse.stud_service %}
+	                        <li><span>Stud Service Only: </span> Yes</li>
+	                    {% endif %}
+	                    </ul>
 
-                </div>
-            </div>
-            {% if horse.description %}
-            <div class="row">
-                <div class="col">
-                    <p>
-                    {{ horse.description }}
-                    </p>
-                </div>
-            </div>
-            {% endif %}
+	                </div>
+	            </div>
+	            {% if horse.description %}
+	            <div class="row">
+	                <div class="col">
+	                    <p>
+	                    {{ horse.description }}
+	                    </p>
+	                </div>
+	            </div>
+	            {% endif %}
 
 
-            {% if horse.stud_fee %}
-            <div class="row">
-                <div class="col">
-                    <li><span>Stud Fee: </span>${{horse.stud_fee}}</li>
-                </div>
-            </div>
-            {% endif %}
+	            {% if horse.stud_fee %}
+	            <div class="row">
+	                <div class="col">
+	                    <li><span>Stud Fee: </span>${{horse.stud_fee}}</li>
+	                </div>
+	            </div>
+	            {% endif %}
 
-            {% if horse.price %}
-            <div class="row">
-                <div class="col">
-                    <li><span>Price: </span> ${{horse.price}}</li>
-                </div>
-            </div>
-            {% endif %}
+	            {% if horse.price %}
+	            <div class="row">
+	                <div class="col">
+	                    <li><span>Price: </span> ${{horse.price}}</li>
+	                </div>
+	            </div>
+	            {% endif %}
 
-        </div>
-    {% endfor %}
+	        </div>
+	    {% endfor %}
+	{% else %}
+		<p>No horses to display at this time</p>
+	{% endif %}
     </div>
 </div>
