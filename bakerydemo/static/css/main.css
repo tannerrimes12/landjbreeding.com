@@ -1168,3 +1168,7 @@ span.outline {
   text-align: center;
   color: #999;
 }
+
+.no-data{
+  margin: 0 0 30px 20px;
+}
